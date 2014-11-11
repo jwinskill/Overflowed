@@ -14,7 +14,7 @@
 @property (nonatomic, strong) NSString *body;
 @property (nonatomic, strong) NSArray *tags;
 
-- (Question *)initWithTitle: (NSString *) title body: (NSString *) body tags: (NSArray *) tags;
+- (instancetype)initWithTitle: (NSString *) title body: (NSString *) body tags: (NSArray *) tags;
 + (NSMutableArray *)parseJsonIntoQuestions: (NSData *)rawJsonData;
 
 

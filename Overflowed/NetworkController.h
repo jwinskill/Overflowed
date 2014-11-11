@@ -15,6 +15,8 @@
 
 - (void) fetchQuestionsWithSearchTerm: (NSString *)searchTerm completionHandler: (void (^)(NSError *error, NSMutableArray *questions))success;
 
-+ (id)networkController;
+- (void) fetchUsersWithSearchTerm: (NSString *)searchTerm completionHandler: (void (^)(NSError *error, NSMutableArray *questions))success;
+
++ (id) networkController;
 
 @end
