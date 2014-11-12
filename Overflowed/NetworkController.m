@@ -15,6 +15,12 @@
 - (void) fetchQuestionsWithSearchTerm: (NSString *)searchTerm completionHandler: (void (^)(NSError *, NSMutableArray *))success {
     
     NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"https://api.stackexchange.com/2.2/search?order=desc&sort=activity&tagged=%@&site=stackoverflow", searchTerm]];
+    
+    NSString *authKey = [[NSUserDefaults standardUserDefaults] valueForKey:@"OAuthToken"];
+    if (authKey) {
+        [url URLByAppendingPathComponent:authKey];
+        NSLog(@"%@", url.lastPathComponent);
+    }
                   
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     self.urlSession = [NSURLSession sessionWithConfiguration:configuration];
