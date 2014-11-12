@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import "Question.h"
 
 @interface OverflowedTests : XCTestCase
 
@@ -23,6 +24,14 @@
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
+}
+
+- (void)testJsonParsing {
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"questionExample" ofType:@"json"];
+    NSData *jsonData = [NSData dataWithContentsOfFile:filePath];
+    NSMutableArray *questionsArray = [Question parseJsonIntoQuestions:jsonData];
+    Question *question = questionsArray[0];
+    XCTAssertTrue([question.title isEqualToString:@"Which is BEST: Closure Tools - JSlint - Browser Console?"]);
 }
 
 - (void)testExample {
