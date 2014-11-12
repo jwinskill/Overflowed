@@ -10,15 +10,22 @@
 
 @implementation Question
 
-- (Question *)initWithTitle: (NSString *) title body: (NSString *) body tags: (NSArray *) tags {
-    self.title = title;
-    self.body = body;
-    self.tags = tags;
+- (instancetype)initWithTitle: (NSString *) title body: (NSString *) body tags: (NSArray *) tags {
+    self = [super init];
+    if (self) {
+        self.title = title;
+        self.body = body;
+        self.tags = tags;
+    }
     return self;
 }
 
 + (NSMutableArray *)parseJsonIntoQuestions: (NSData *)rawJsonData {
     NSError *error = nil;
+    if (error != nil) {
+        NSLog(@" %@", error.localizedDescription);
+    }
+    
     NSMutableArray *questions = [[NSMutableArray alloc] init];
     
     NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:rawJsonData options:0 error:&error];
