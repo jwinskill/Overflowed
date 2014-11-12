@@ -21,6 +21,7 @@
 		037DDBD11A11768B002A6E52 /* userExample.json in Resources */ = {isa = PBXBuildFile; fileRef = 037DDBCF1A11768B002A6E52 /* userExample.json */; };
 		037DDBD41A117D47002A6E52 /* NetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 037DDBD31A117D47002A6E52 /* NetworkController.m */; };
 		037DDBD71A118CEF002A6E52 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 037DDBD61A118CEF002A6E52 /* SearchViewController.m */; };
+		037DDBDA1A12AFE6002A6E52 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 037DDBD91A12AFE6002A6E52 /* WebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		037DDBD31A117D47002A6E52 /* NetworkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkController.m; sourceTree = "<group>"; };
 		037DDBD51A118CEF002A6E52 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		037DDBD61A118CEF002A6E52 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		037DDBD81A12AFE6002A6E52 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		037DDBD91A12AFE6002A6E52 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +163,8 @@
 				037DDBD31A117D47002A6E52 /* NetworkController.m */,
 				037DDBD51A118CEF002A6E52 /* SearchViewController.h */,
 				037DDBD61A118CEF002A6E52 /* SearchViewController.m */,
+				037DDBD81A12AFE6002A6E52 /* WebViewController.h */,
+				037DDBD91A12AFE6002A6E52 /* WebViewController.m */,
 			);
 			name = "Controller Layer";
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 				037DDB9D1A11552A002A6E52 /* main.m in Sources */,
 				037DDBC81A11661B002A6E52 /* User.m in Sources */,
 				037DDBCD1A1166F4002A6E52 /* ContainerController.m in Sources */,
+				037DDBDA1A12AFE6002A6E52 /* WebViewController.m in Sources */,
 				037DDBD41A117D47002A6E52 /* NetworkController.m in Sources */,
 				037DDBC51A1165FB002A6E52 /* Question.m in Sources */,
 				037DDBD71A118CEF002A6E52 /* SearchViewController.m in Sources */,
@@ -466,6 +472,7 @@
 				037DDBBF1A11552A002A6E52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		037DDBC01A11552A002A6E52 /* Build configuration list for PBXNativeTarget "OverflowedTests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +481,7 @@
 				037DDBC21A11552A002A6E52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
