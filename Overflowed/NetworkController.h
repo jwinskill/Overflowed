@@ -12,6 +12,7 @@
 @interface NetworkController : NSObject
 
 @property (nonatomic, strong) NSURLSession *urlSession;
+@property (nonatomic, strong) NSString *token;
 
 - (void) fetchQuestionsWithSearchTerm: (NSString *)searchTerm completionHandler: (void (^)(NSError *error, NSMutableArray *questions))success;
 

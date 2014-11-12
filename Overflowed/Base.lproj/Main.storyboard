@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Web View Controller-->
         <scene sceneID="Bwf-Jf-aXI">
             <objects>
-                <viewController id="19k-EK-uX0" sceneMemberID="viewController">
+                <viewController id="19k-EK-uX0" customClass="WebViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xKn-Wj-jv8"/>
                         <viewControllerLayoutGuide type="bottom" id="UgQ-V5-9Hx"/>
@@ -16,8 +16,22 @@
                     <view key="view" contentMode="scaleToFill" id="1g0-DI-7H1">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.67843139171600342" green="0.92156869173049927" blue="0.65882354974746704" alpha="1" colorSpace="deviceRGB"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VZA-HS-VTx">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="VZA-HS-VTx" firstAttribute="leading" secondItem="1g0-DI-7H1" secondAttribute="leading" id="A6h-DZ-Bfl"/>
+                            <constraint firstItem="UgQ-V5-9Hx" firstAttribute="top" secondItem="VZA-HS-VTx" secondAttribute="bottom" id="dha-WT-blE"/>
+                            <constraint firstItem="VZA-HS-VTx" firstAttribute="top" secondItem="xKn-Wj-jv8" secondAttribute="bottom" id="j0o-Ls-Ffi"/>
+                            <constraint firstAttribute="trailing" secondItem="VZA-HS-VTx" secondAttribute="trailing" id="ria-VM-lDg"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="VZA-HS-VTx" id="NJp-oZ-P5j"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eeb-Xe-2SF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -82,7 +96,7 @@
         <!--Search View Controller-->
         <scene sceneID="EHs-r6-iIj">
             <objects>
-                <viewController id="Vph-Qk-Fco" customClass="SearchViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Vph-Qk-Fco" customClass="SearchViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zDZ-bN-wTk"/>
                         <viewControllerLayoutGuide type="bottom" id="pXW-zu-5zj"/>
@@ -92,8 +106,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="iox-L0-Di6">
-                                <rect key="frame" x="0.0" y="88" width="600" height="512"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="hRf-Qk-mMI">
+                                    <rect key="frame" x="0.0" y="44" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="Vph-Qk-Fco" id="Rhi-dl-dsj"/>
+                                    </connections>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CELL" id="PYI-pV-RLc">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -107,23 +129,13 @@
                                     <outlet property="dataSource" destination="Vph-Qk-Fco" id="Set-7y-6XR"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="hRf-Qk-mMI">
-                                <rect key="frame" x="0.0" y="44" width="600" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Vph-Qk-Fco" id="Rhi-dl-dsj"/>
-                                </connections>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hRf-Qk-mMI" firstAttribute="top" secondItem="zDZ-bN-wTk" secondAttribute="bottom" id="9ni-rA-ZDf"/>
-                            <constraint firstItem="iox-L0-Di6" firstAttribute="top" secondItem="hRf-Qk-mMI" secondAttribute="bottom" id="M5N-8v-tFB"/>
-                            <constraint firstAttribute="trailing" secondItem="iox-L0-Di6" secondAttribute="trailing" id="WEC-7v-hep"/>
-                            <constraint firstAttribute="trailing" secondItem="hRf-Qk-mMI" secondAttribute="trailing" id="Y5U-fz-irB"/>
-                            <constraint firstAttribute="bottom" secondItem="iox-L0-Di6" secondAttribute="bottom" id="ihE-8W-XFZ"/>
-                            <constraint firstItem="iox-L0-Di6" firstAttribute="leading" secondItem="Gn8-zm-UXh" secondAttribute="leading" id="m1H-RX-AAY"/>
-                            <constraint firstItem="hRf-Qk-mMI" firstAttribute="leading" secondItem="Gn8-zm-UXh" secondAttribute="leading" id="pVT-7C-GZe"/>
+                            <constraint firstItem="pXW-zu-5zj" firstAttribute="top" secondItem="iox-L0-Di6" secondAttribute="bottom" id="3m4-eR-H1d"/>
+                            <constraint firstItem="iox-L0-Di6" firstAttribute="leading" secondItem="Gn8-zm-UXh" secondAttribute="leading" id="CdN-oz-b7E"/>
+                            <constraint firstAttribute="trailing" secondItem="iox-L0-Di6" secondAttribute="trailing" id="Edb-xR-XDh"/>
+                            <constraint firstItem="iox-L0-Di6" firstAttribute="top" secondItem="zDZ-bN-wTk" secondAttribute="bottom" id="PAi-XY-wHV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0ys-Aw-9E8"/>
@@ -139,7 +151,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Mwy-CF-B8J">
             <objects>
-                <navigationController id="FIc-X9-RqN" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FIc-X9-RqN" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="miu-Pi-zjt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
