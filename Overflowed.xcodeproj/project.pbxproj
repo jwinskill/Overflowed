@@ -25,6 +25,8 @@
 		03D8B6CB1A1480C700FF25EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D8B6CA1A1480C700FF25EA /* Main.storyboard */; };
 		03D8B6CF1A151A8A00FF25EA /* Transitioner.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D8B6CE1A151A8A00FF25EA /* Transitioner.m */; };
 		03D8B6D21A156F5500FF25EA /* CustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D8B6D11A156F5500FF25EA /* CustomSegue.m */; };
+		03D8B6D51A16AA2F00FF25EA /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D8B6D41A16AA2F00FF25EA /* MyProfileViewController.m */; };
+		03D8B6D81A16AB6E00FF25EA /* UsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D8B6D71A16AB6E00FF25EA /* UsersViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,10 @@
 		03D8B6CE1A151A8A00FF25EA /* Transitioner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transitioner.m; sourceTree = "<group>"; };
 		03D8B6D01A156F5500FF25EA /* CustomSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSegue.h; sourceTree = "<group>"; };
 		03D8B6D11A156F5500FF25EA /* CustomSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSegue.m; sourceTree = "<group>"; };
+		03D8B6D31A16AA2F00FF25EA /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileViewController.h; sourceTree = "<group>"; };
+		03D8B6D41A16AA2F00FF25EA /* MyProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfileViewController.m; sourceTree = "<group>"; };
+		03D8B6D61A16AB6E00FF25EA /* UsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersViewController.h; sourceTree = "<group>"; };
+		03D8B6D71A16AB6E00FF25EA /* UsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,10 +174,14 @@
 			children = (
 				037DDBCB1A1166F4002A6E52 /* ContainerController.h */,
 				037DDBCC1A1166F4002A6E52 /* ContainerController.m */,
+				03D8B6D31A16AA2F00FF25EA /* MyProfileViewController.h */,
+				03D8B6D41A16AA2F00FF25EA /* MyProfileViewController.m */,
 				037DDBD21A117D47002A6E52 /* NetworkController.h */,
 				037DDBD31A117D47002A6E52 /* NetworkController.m */,
 				037DDBD51A118CEF002A6E52 /* SearchViewController.h */,
 				037DDBD61A118CEF002A6E52 /* SearchViewController.m */,
+				03D8B6D61A16AB6E00FF25EA /* UsersViewController.h */,
+				03D8B6D71A16AB6E00FF25EA /* UsersViewController.m */,
 				037DDBD81A12AFE6002A6E52 /* WebViewController.h */,
 				037DDBD91A12AFE6002A6E52 /* WebViewController.m */,
 				03D8B6C71A147E8200FF25EA /* BaseViewController.h */,
@@ -296,10 +306,12 @@
 			files = (
 				037DDBA01A11552A002A6E52 /* AppDelegate.m in Sources */,
 				03D8B6C91A147E8200FF25EA /* BaseViewController.m in Sources */,
+				03D8B6D51A16AA2F00FF25EA /* MyProfileViewController.m in Sources */,
 				037DDB9D1A11552A002A6E52 /* main.m in Sources */,
 				037DDBC81A11661B002A6E52 /* User.m in Sources */,
 				037DDBCD1A1166F4002A6E52 /* ContainerController.m in Sources */,
 				03D8B6CF1A151A8A00FF25EA /* Transitioner.m in Sources */,
+				03D8B6D81A16AB6E00FF25EA /* UsersViewController.m in Sources */,
 				037DDBDA1A12AFE6002A6E52 /* WebViewController.m in Sources */,
 				037DDBD41A117D47002A6E52 /* NetworkController.m in Sources */,
 				03D8B6D21A156F5500FF25EA /* CustomSegue.m in Sources */,
