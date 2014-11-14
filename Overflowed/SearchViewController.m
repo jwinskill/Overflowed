@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.navigationController.navigationBarHidden = NO;
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar; {
@@ -33,6 +33,8 @@
     }];
 }
 
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
      return self.questions.count;
 }
@@ -43,5 +45,7 @@
     cell.textLabel.text = newQuestion.title;
     return cell;
 }
+
+
 
 @end
