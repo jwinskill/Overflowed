@@ -11,6 +11,9 @@
 @interface Transitioner : NSObject <UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate>
 
 @property BOOL presenting;
+@property float rotatePointY;
+@property float rotateAngleIn;
+@property float rotateAngleOut;
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext;
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext;

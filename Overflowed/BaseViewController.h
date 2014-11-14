@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Transitioner.h"
 #import "SearchViewController.h"
+#import "UsersViewController.h"
+#import "MyProfileViewController.h"
+#import "math.h"
 
 @interface BaseViewController : UIViewController
 

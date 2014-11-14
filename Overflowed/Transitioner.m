@@ -21,11 +21,15 @@
     UIView *toView    = [transitionContext viewForKey:UITransitionContextToViewKey];
     
     // set up from 2D transforms that we'll use in the animation
-    float pi = 3.14159;
-//    CGAffineTransform offScreenLeft  = CGAffineTransformMakeTranslation(container.frame.size.width, 0);
-//    CGAffineTransform offScreenRight = CGAffineTransformMakeTranslation(-container.frame.size.width, 0);
-    CGAffineTransform offScreenRotateIn  = CGAffineTransformMakeRotation(-pi / 2);
-    CGAffineTransform offScreenRotateOut = CGAffineTransformMakeRotation(pi / 2);
+    CGAffineTransform offScreenRotateIn = CGAffineTransformMakeTranslation(0, self.rotatePointY);
+    CGAffineTransform offScreenRotateOut = CGAffineTransformMakeTranslation(0, self.rotatePointY);
+    
+    offScreenRotateIn = CGAffineTransformRotate(offScreenRotateIn, self.rotateAngleIn);
+    offScreenRotateOut = CGAffineTransformRotate(offScreenRotateOut, self.rotateAngleOut);
+    
+    offScreenRotateIn = CGAffineTransformTranslate(offScreenRotateIn, 0, -self.rotatePointY);
+    offScreenRotateOut = CGAffineTransformTranslate(offScreenRotateOut, 0, -self.rotatePointY);
+
     
     // start the toView location based on which controller is being presented
 //    toView.transform = offScreenRight;
@@ -35,7 +39,7 @@
         toView.transform = offScreenRotateOut;
     }
     
-    // Set the anchor point to swivel from the top left of the screen
+    // Set the anchor point
     toView.layer.anchorPoint = CGPointMake(0, 0);
     fromView.layer.anchorPoint = CGPointMake(0, 0);
     

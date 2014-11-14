@@ -12,5 +12,6 @@
 @interface CustomSegue : UIStoryboardSegue
 
 @property (nonatomic, strong) Transitioner *transitioner;
+-(void)perform;
 
 @end
