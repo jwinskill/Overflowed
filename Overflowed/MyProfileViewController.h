@@ -10,4 +10,7 @@
 
 @interface MyProfileViewController : UIViewController
 
+@property BOOL signedIn;
+
+
 @end

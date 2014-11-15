@@ -16,7 +16,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    if (!self.signedIn) {
+        UILabel *label = [[UILabel alloc] init];
+        label.text = @"Please sign in";
+        [label setFont: [UIFont fontWithName:@"Helvetica Neue Thin" size:47]];
+        
+    }
 }
 
 @end

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NetworkController.h"
 #import "Question.h"
+#import "QuestionCell.h"
 
 @interface SearchViewController : UIViewController <UITableViewDataSource, UISearchBarDelegate>
 
