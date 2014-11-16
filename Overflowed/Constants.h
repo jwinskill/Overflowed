@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-FOUNDATION_EXPORT NSString *const publicKey;
-FOUNDATION_EXPORT NSString *const oAuthDomain;
-FOUNDATION_EXPORT NSString *const clientID;
-FOUNDATION_EXPORT NSString *const oAuthURL;
+FOUNDATION_EXPORT NSString *const kPublicKey;
+FOUNDATION_EXPORT NSString *const kOAuthDomain;
+FOUNDATION_EXPORT NSString *const kClientID;
+FOUNDATION_EXPORT NSString *const kOAuthURL;

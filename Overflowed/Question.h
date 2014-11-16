@@ -13,8 +13,11 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *body;
 @property (nonatomic, strong) NSArray *tags;
+@property (nonatomic, strong) NSString *votes;
+@property (nonatomic, strong) NSString *answers;
+@property (nonatomic, strong) NSString *questionURL;
 
-- (instancetype)initWithTitle: (NSString *) title body: (NSString *) body tags: (NSArray *) tags;
+- (instancetype)initWithTitle: (NSString *)title body: (NSString *)body tags: (NSArray *)tags votes: (NSString *)votes answers: (NSString *)answers questionURL: (NSString *)questionURL;
 + (NSMutableArray *)parseJsonIntoQuestions: (NSData *)rawJsonData;
 
 

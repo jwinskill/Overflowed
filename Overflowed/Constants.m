@@ -8,9 +8,9 @@
 
 #import "Constants.h"
 
-NSString *const publicKey   = @"pevqfbhFy89t7ULJYHUoXA((";
-NSString *const oAuthDomain = @"https://stackexchange.com/oauth/login_success";
-NSString *const clientID    = @"3833";
-NSString *const oAuthURL    = @"https://stackexchange.com/oauth/dialog";
+NSString *const kPublicKey   = @"pevqfbhFy89t7ULJYHUoXA((";
+NSString *const kOAuthDomain = @"https://stackexchange.com/oauth/login_success";
+NSString *const kClientID    = @"3833";
+NSString *const kOAuthURL    = @"https://stackexchange.com/oauth/dialog";
                                                    
 

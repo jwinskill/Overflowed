@@ -14,13 +14,21 @@
 
 - (void) fetchQuestionsWithSearchTerm: (NSString *)searchTerm completionHandler: (void (^)(NSError *, NSMutableArray *))success {
     
-    NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"https://api.stackexchange.com/2.2/search?order=desc&sort=activity&tagged=%@&site=stackoverflow", searchTerm]];
+    NSString *urlString = [NSString stringWithFormat:@"https://api.stackexchange.com/2.2/search?order=desc&sort=activity&tagged=%@&site=stackoverflow", searchTerm];
     
     NSString *authKey = [[NSUserDefaults standardUserDefaults] valueForKey:@"OAuthToken"];
     if (authKey) {
-        [url URLByAppendingPathComponent:authKey];
         NSLog(@"%@", authKey);
+        NSString *authParameter = [NSString stringWithFormat: @"&access_token=%@", authKey];
+        NSLog(@"the auth parameter is: %@", authParameter);
+        NSString *publicKeyParameter = [NSString stringWithFormat: @"&key=%@", kPublicKey];
+        NSString *bothParameters = [authParameter stringByAppendingString:publicKeyParameter];
+        NSLog(@"Both parameters: %@", bothParameters);
+        urlString = [urlString stringByAppendingString:bothParameters];
+        NSLog(@"final URL string: %@", urlString);
     }
+    
+    NSURL *url = [[NSURL alloc] initWithString: urlString];
                   
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     self.urlSession = [NSURLSession sessionWithConfiguration:configuration];

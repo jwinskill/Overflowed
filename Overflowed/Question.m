@@ -10,12 +10,15 @@
 
 @implementation Question
 
-- (instancetype)initWithTitle: (NSString *) title body: (NSString *) body tags: (NSArray *) tags {
+- (instancetype)initWithTitle: (NSString *)title body: (NSString *)body tags: (NSArray *)tags votes: (NSString *)votes answers: (NSString *)answers questionURL: (NSString *)questionURL {
     self = [super init];
     if (self) {
         self.title = title;
         self.body = body;
         self.tags = tags;
+        self.votes = votes;
+        self.answers = answers;
+        self.questionURL = questionURL;
     }
     return self;
 }
@@ -34,7 +37,12 @@
         NSArray *tags = object[@"tags"];
         NSString *title = object[@"title"];
         NSString *body = @"";
-        Question *newQuestion = [[Question alloc] initWithTitle:title body:body tags:tags];
+        id votesInt = object[@"score"];
+        NSString *votes = [NSString stringWithFormat:@"%@", votesInt];
+        id answersInt = object[@"answer_count"];
+        NSString *answers = [NSString stringWithFormat:@"%@", answersInt];
+        NSString *questionURL = object[@"link"];
+        Question *newQuestion = [[Question alloc] initWithTitle:title body:body tags:tags votes:votes answers:answers questionURL:questionURL];
         [questions addObject:newQuestion];
     }
     return questions;
