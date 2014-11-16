@@ -37,6 +37,7 @@
             sharedNetworkController.token = tokenComponents[0];
             [[NSUserDefaults standardUserDefaults] setValue:sharedNetworkController.token forKey:@"OAuthToken"];
             [[NSUserDefaults standardUserDefaults] synchronize];
+            [self dismissViewControllerAnimated:true completion:nil];
         }
     }
     return true;

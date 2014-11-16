@@ -157,7 +157,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Vc9-GR-DGA"/>
-                                    <barButtonItem title="Sign In" id="5D0-vb-Vvx"/>
+                                    <barButtonItem title="Sign In" id="5D0-vb-Vvx">
+                                        <connections>
+                                            <segue destination="30m-To-CYd" kind="custom" identifier="WEBVIEW_SEGUE" id="9uk-ax-W0O"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -168,16 +172,19 @@
                             <constraint firstAttribute="trailing" secondItem="uQE-0c-4NT" secondAttribute="trailing" id="yHT-he-7nx"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="signInButton" destination="5D0-vb-Vvx" id="G8Z-A6-F32"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2j5-UA-JQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="c0S-Mv-ZKc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3498" y="597"/>
         </scene>
-        <!--View Controller-->
+        <!--Web View Controller-->
         <scene sceneID="5Qt-5Y-zGw">
             <objects>
-                <viewController id="30m-To-CYd" sceneMemberID="viewController">
+                <viewController id="30m-To-CYd" customClass="WebViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3u-0H-DA8"/>
                         <viewControllerLayoutGuide type="bottom" id="DVp-EY-i4x"/>
@@ -185,8 +192,23 @@
                     <view key="view" contentMode="scaleToFill" id="S7S-8o-tab">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VNv-AN-iMx">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="VNv-AN-iMx" secondAttribute="trailing" id="4aK-f3-OWz"/>
+                            <constraint firstItem="VNv-AN-iMx" firstAttribute="leading" secondItem="S7S-8o-tab" secondAttribute="leading" id="C1K-Vx-gSc"/>
+                            <constraint firstItem="DVp-EY-i4x" firstAttribute="top" secondItem="VNv-AN-iMx" secondAttribute="bottom" id="N5q-Di-GU0"/>
+                            <constraint firstItem="VNv-AN-iMx" firstAttribute="top" secondItem="S7S-8o-tab" secondAttribute="top" id="yRQ-qp-IyP"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="VNv-AN-iMx" id="R0c-DG-V6Q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1p6-rm-g1p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

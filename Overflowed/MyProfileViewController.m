@@ -16,11 +16,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (!self.signedIn) {
-        UILabel *label = [[UILabel alloc] init];
-        label.text = @"Please sign in";
-        [label setFont: [UIFont fontWithName:@"Helvetica Neue Thin" size:47]];
-        
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:true];
+    self.transitioner = [[Transitioner alloc] init];
+    if ([[NSUserDefaults standardUserDefaults] valueForKey:@"OAuthToken"]) {
+        self.signInButton.title = @"";
+    }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"WEBVIEW_SEGUE"]) {
+        WebViewController *destinationVC = segue.destinationViewController;
+        self.transitioner.rotatePointY = self.view.frame.size.height;
+        self.transitioner.rotateAngleIn = M_PI / 2;
+        self.transitioner.rotateAngleOut = M_PI / 2;
+        destinationVC.transitioningDelegate = self.transitioner;
     }
 }
 
