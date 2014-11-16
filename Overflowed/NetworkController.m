@@ -52,9 +52,23 @@
     [dataTask resume];
 }
 
-- (void) fetchUsersWithSearchTerm: (NSString *)searchTerm completionHandler: (void (^)(NSError *error, NSMutableArray *questions))success {
+- (void) fetchUsersWithSearchTerm: (NSString *)searchTerm completionHandler: (void (^)(NSError *error, NSMutableArray *users))success {
     
-    NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"https://api.stackexchange.com/2.2/users?order=desc&sort=reputation&inname=%@&site=stackoverflow", searchTerm]];
+    NSString *urlString = [NSString stringWithFormat:@"https://api.stackexchange.com/2.2/users?order=desc&sort=reputation&inname=%@&site=stackoverflow", searchTerm];
+    
+    NSString *authKey = [[NSUserDefaults standardUserDefaults] valueForKey:@"OAuthToken"];
+    if (authKey) {
+        NSLog(@"%@", authKey);
+        NSString *authParameter = [NSString stringWithFormat: @"&access_token=%@", authKey];
+        NSLog(@"the auth parameter is: %@", authParameter);
+        NSString *publicKeyParameter = [NSString stringWithFormat: @"&key=%@", kPublicKey];
+        NSString *bothParameters = [authParameter stringByAppendingString:publicKeyParameter];
+        NSLog(@"Both parameters: %@", bothParameters);
+        urlString = [urlString stringByAppendingString:bothParameters];
+        NSLog(@"final URL string: %@", urlString);
+    }
+    
+    NSURL *url = [[NSURL alloc] initWithString: urlString];
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     self.urlSession = [NSURLSession sessionWithConfiguration:configuration];
@@ -66,9 +80,9 @@
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
             if (httpResponse.statusCode == 200) {
                 NSLog(@"fetch successful");
-                NSMutableArray *questions = [Question parseJsonIntoQuestions:data];
+                NSMutableArray *users = [User parseJsonIntoUsers:data];
                 [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                    success(nil, questions);
+                    success(nil, users);
                 }];
             } else {
                 NSLog(@"fetch was unsuccessful. code: %lu", httpResponse.statusCode);
