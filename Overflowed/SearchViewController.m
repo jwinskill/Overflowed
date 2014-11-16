@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.tableView.hidden = YES;
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar; {
@@ -29,19 +29,28 @@
             self.questions = questions;
             [self.searchBar resignFirstResponder];
             [self.tableView reloadData];
+            self.tableView.hidden = NO;
         }
     }];
 }
+
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
      return self.questions.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"CELL"];
+    QuestionCell *cell = [tableView dequeueReusableCellWithIdentifier: @"QUESTION_CELL"];
+    if (!cell) {
+        [tableView registerNib:[UINib nibWithNibName:@"QuestionCell" bundle:nil] forCellReuseIdentifier:@"QUESTION_CELL"];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"QUESTION_CELL"];
+    }
     Question *newQuestion = self.questions[indexPath.row];
-    cell.textLabel.text = newQuestion.title;
+    cell.question.text = newQuestion.title;
     return cell;
 }
+
+
 
 @end

@@ -19,7 +19,7 @@
     NSString *authKey = [[NSUserDefaults standardUserDefaults] valueForKey:@"OAuthToken"];
     if (authKey) {
         [url URLByAppendingPathComponent:authKey];
-        NSLog(@"%@", url.lastPathComponent);
+        NSLog(@"%@", authKey);
     }
                   
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];

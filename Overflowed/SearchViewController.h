@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NetworkController.h"
 #import "Question.h"
+#import "QuestionCell.h"
 
 @interface SearchViewController : UIViewController <UITableViewDataSource, UISearchBarDelegate>
 
@@ -20,5 +21,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar;
+
 
 @end
