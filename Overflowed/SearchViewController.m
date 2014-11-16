@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBarHidden = NO;
+    self.tableView.hidden = YES;
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar; {
@@ -29,6 +29,7 @@
             self.questions = questions;
             [self.searchBar resignFirstResponder];
             [self.tableView reloadData];
+            self.tableView.hidden = NO;
         }
     }];
 }

@@ -174,6 +174,24 @@
             </objects>
             <point key="canvasLocation" x="3498" y="597"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="5Qt-5Y-zGw">
+            <objects>
+                <viewController id="30m-To-CYd" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3u-0H-DA8"/>
+                        <viewControllerLayoutGuide type="bottom" id="DVp-EY-i4x"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="S7S-8o-tab">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1p6-rm-g1p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4188" y="597"/>
+        </scene>
         <!--Search View Controller-->
         <scene sceneID="EHs-r6-iIj">
             <objects>
@@ -187,17 +205,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="iox-L0-Di6">
-                                <rect key="frame" x="0.0" y="20" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="512"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" id="hRf-Qk-mMI">
-                                    <rect key="frame" x="0.0" y="44" width="600" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="barTintColor" red="0.69803921568627447" green="0.792156862745098" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                    <connections>
-                                        <outlet property="delegate" destination="Vph-Qk-Fco" id="Rhi-dl-dsj"/>
-                                    </connections>
-                                </searchBar>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CELL" id="PYI-pV-RLc">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -223,18 +232,46 @@
                                     <barButtonItem title="Place Holder" id="oA7-bq-Tjp"/>
                                 </items>
                             </toolbar>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="hRf-Qk-mMI">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <color key="barTintColor" red="0.69803921568627447" green="0.792156862745098" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Vph-Qk-Fco" id="Rhi-dl-dsj"/>
+                                </connections>
+                            </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for questions by tag" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUm-6e-ek8">
+                                <rect key="frame" x="20" y="155" width="560" height="55.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="47"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.69803921570000005" green="0.79215686269999996" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="pXW-zu-5zj" firstAttribute="top" secondItem="p1o-TU-ku1" secondAttribute="bottom" id="07I-jQ-fkk"/>
                             <constraint firstItem="p1o-TU-ku1" firstAttribute="top" secondItem="iox-L0-Di6" secondAttribute="bottom" id="3pB-3v-eEN"/>
                             <constraint firstItem="p1o-TU-ku1" firstAttribute="leading" secondItem="Gn8-zm-UXh" secondAttribute="leading" id="4dq-X7-3qc"/>
+                            <constraint firstAttribute="centerY" secondItem="mUm-6e-ek8" secondAttribute="centerY" constant="117.5" id="7v6-ta-xzO"/>
                             <constraint firstItem="iox-L0-Di6" firstAttribute="leading" secondItem="Gn8-zm-UXh" secondAttribute="leading" id="CdN-oz-b7E"/>
+                            <constraint firstItem="mUm-6e-ek8" firstAttribute="leading" secondItem="Gn8-zm-UXh" secondAttribute="leading" constant="20" symbolic="YES" id="Cle-Cz-Oal"/>
+                            <constraint firstItem="mUm-6e-ek8" firstAttribute="leading" secondItem="Gn8-zm-UXh" secondAttribute="leadingMargin" constant="109" id="D7M-Ng-Pyb"/>
                             <constraint firstAttribute="trailing" secondItem="iox-L0-Di6" secondAttribute="trailing" id="Edb-xR-XDh"/>
-                            <constraint firstItem="iox-L0-Di6" firstAttribute="top" secondItem="zDZ-bN-wTk" secondAttribute="bottom" id="PAi-XY-wHV"/>
+                            <constraint firstItem="hRf-Qk-mMI" firstAttribute="leading" secondItem="Gn8-zm-UXh" secondAttribute="leading" id="M4m-xf-WVZ"/>
+                            <constraint firstAttribute="trailing" secondItem="hRf-Qk-mMI" secondAttribute="trailing" id="OhB-q8-wzD"/>
+                            <constraint firstItem="iox-L0-Di6" firstAttribute="top" secondItem="zDZ-bN-wTk" secondAttribute="bottom" constant="24" id="PAi-XY-wHV"/>
+                            <constraint firstAttribute="trailing" secondItem="mUm-6e-ek8" secondAttribute="trailing" constant="20" symbolic="YES" id="WSn-Lu-Py3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mUm-6e-ek8" secondAttribute="trailing" constant="109" id="bV6-z6-yca"/>
+                            <constraint firstAttribute="centerY" secondItem="hRf-Qk-mMI" secondAttribute="centerY" constant="278" id="dBb-7X-U4X"/>
                             <constraint firstAttribute="trailing" secondItem="p1o-TU-ku1" secondAttribute="trailing" id="yBy-gO-Kds"/>
                             <constraint firstItem="p1o-TU-ku1" firstAttribute="top" secondItem="iox-L0-Di6" secondAttribute="bottom" id="zxo-WG-wIc"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="D7M-Ng-Pyb"/>
+                                <exclude reference="bV6-z6-yca"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="0ys-Aw-9E8"/>
                     <connections>

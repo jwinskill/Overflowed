@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		031D32231A184747009A66F0 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 031D32221A184747009A66F0 /* Constants.m */; };
 		037DDB9D1A11552A002A6E52 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 037DDB9C1A11552A002A6E52 /* main.m */; };
 		037DDBA01A11552A002A6E52 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 037DDB9F1A11552A002A6E52 /* AppDelegate.m */; };
 		037DDBA31A11552A002A6E52 /* Overflowed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 037DDBA11A11552A002A6E52 /* Overflowed.xcdatamodeld */; };
@@ -42,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		031D32211A184747009A66F0 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		031D32221A184747009A66F0 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		037DDB971A11552A002A6E52 /* Overflowed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Overflowed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		037DDB9B1A11552A002A6E52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		037DDB9C1A11552A002A6E52 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -164,6 +167,8 @@
 		037DDBC91A116627002A6E52 /* Model Layer */ = {
 			isa = PBXGroup;
 			children = (
+				031D32211A184747009A66F0 /* Constants.h */,
+				031D32221A184747009A66F0 /* Constants.m */,
 				037DDBC31A1165FB002A6E52 /* Question.h */,
 				037DDBC41A1165FB002A6E52 /* Question.m */,
 				037DDBCE1A11768B002A6E52 /* questionExample.json */,
@@ -316,6 +321,7 @@
 				037DDBA01A11552A002A6E52 /* AppDelegate.m in Sources */,
 				03D8B6C91A147E8200FF25EA /* BaseViewController.m in Sources */,
 				03D8B6D51A16AA2F00FF25EA /* MyProfileViewController.m in Sources */,
+				031D32231A184747009A66F0 /* Constants.m in Sources */,
 				037DDB9D1A11552A002A6E52 /* main.m in Sources */,
 				037DDBC81A11661B002A6E52 /* User.m in Sources */,
 				03D8B6DD1A16D55C00FF25EA /* QuestionCell.m in Sources */,
