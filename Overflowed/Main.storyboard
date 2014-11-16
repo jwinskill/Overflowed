@@ -62,7 +62,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="rTq-Kr-vXf" kind="custom" identifier="USERS_SEGUE" id="5sZ-px-csS"/>
+                                            <segue destination="rTq-Kr-vXf" kind="show" identifier="USERS_SEGUE" id="5sZ-px-csS"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -157,7 +157,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Vc9-GR-DGA"/>
-                                    <barButtonItem title="Sign In" id="5D0-vb-Vvx"/>
+                                    <barButtonItem title="Sign In" id="5D0-vb-Vvx">
+                                        <connections>
+                                            <segue destination="30m-To-CYd" kind="custom" identifier="WEBVIEW_SEGUE" id="9uk-ax-W0O"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -168,16 +172,19 @@
                             <constraint firstAttribute="trailing" secondItem="uQE-0c-4NT" secondAttribute="trailing" id="yHT-he-7nx"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="signInButton" destination="5D0-vb-Vvx" id="G8Z-A6-F32"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2j5-UA-JQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="c0S-Mv-ZKc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3498" y="597"/>
         </scene>
-        <!--View Controller-->
+        <!--Web View Controller-->
         <scene sceneID="5Qt-5Y-zGw">
             <objects>
-                <viewController id="30m-To-CYd" sceneMemberID="viewController">
+                <viewController id="30m-To-CYd" customClass="WebViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3u-0H-DA8"/>
                         <viewControllerLayoutGuide type="bottom" id="DVp-EY-i4x"/>
@@ -185,8 +192,23 @@
                     <view key="view" contentMode="scaleToFill" id="S7S-8o-tab">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VNv-AN-iMx">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="VNv-AN-iMx" secondAttribute="trailing" id="4aK-f3-OWz"/>
+                            <constraint firstItem="VNv-AN-iMx" firstAttribute="leading" secondItem="S7S-8o-tab" secondAttribute="leading" id="C1K-Vx-gSc"/>
+                            <constraint firstItem="DVp-EY-i4x" firstAttribute="top" secondItem="VNv-AN-iMx" secondAttribute="bottom" id="N5q-Di-GU0"/>
+                            <constraint firstItem="VNv-AN-iMx" firstAttribute="top" secondItem="S7S-8o-tab" secondAttribute="top" id="yRQ-qp-IyP"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="VNv-AN-iMx" id="R0c-DG-V6Q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1p6-rm-g1p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -204,6 +226,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for questions by tag" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUm-6e-ek8">
+                                <rect key="frame" x="20" y="155" width="560" height="55.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="47"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p1o-TU-ku1">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Back" id="jMv-g5-UxJ">
+                                        <connections>
+                                            <segue destination="bCN-N2-Yaz" kind="unwind" unwindAction="unwindToBaseController:" id="iTS-LZ-9P7"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="2md-DH-JIC"/>
+                                    <barButtonItem title="Place Holder" id="oA7-bq-Tjp"/>
+                                </items>
+                            </toolbar>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="hRf-Qk-mMI">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <color key="barTintColor" red="0.69803921568627447" green="0.792156862745098" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Vph-Qk-Fco" id="Rhi-dl-dsj"/>
+                                </connections>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="iox-L0-Di6">
                                 <rect key="frame" x="0.0" y="44" width="600" height="512"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -220,32 +268,6 @@
                                     <outlet property="dataSource" destination="Vph-Qk-Fco" id="Set-7y-6XR"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p1o-TU-ku1">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <items>
-                                    <barButtonItem title="Back" id="jMv-g5-UxJ">
-                                        <connections>
-                                            <segue destination="bCN-N2-Yaz" kind="unwind" unwindAction="unwindToBaseController:" id="iTS-LZ-9P7"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="2md-DH-JIC"/>
-                                    <barButtonItem title="Place Holder" id="oA7-bq-Tjp"/>
-                                </items>
-                            </toolbar>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="hRf-Qk-mMI">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <color key="barTintColor" red="0.69803921568627447" green="0.792156862745098" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Vph-Qk-Fco" id="Rhi-dl-dsj"/>
-                                </connections>
-                            </searchBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for questions by tag" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUm-6e-ek8">
-                                <rect key="frame" x="20" y="155" width="560" height="55.5"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="47"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.69803921570000005" green="0.79215686269999996" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -255,23 +277,15 @@
                             <constraint firstAttribute="centerY" secondItem="mUm-6e-ek8" secondAttribute="centerY" constant="117.5" id="7v6-ta-xzO"/>
                             <constraint firstItem="iox-L0-Di6" firstAttribute="leading" secondItem="Gn8-zm-UXh" secondAttribute="leading" id="CdN-oz-b7E"/>
                             <constraint firstItem="mUm-6e-ek8" firstAttribute="leading" secondItem="Gn8-zm-UXh" secondAttribute="leading" constant="20" symbolic="YES" id="Cle-Cz-Oal"/>
-                            <constraint firstItem="mUm-6e-ek8" firstAttribute="leading" secondItem="Gn8-zm-UXh" secondAttribute="leadingMargin" constant="109" id="D7M-Ng-Pyb"/>
                             <constraint firstAttribute="trailing" secondItem="iox-L0-Di6" secondAttribute="trailing" id="Edb-xR-XDh"/>
                             <constraint firstItem="hRf-Qk-mMI" firstAttribute="leading" secondItem="Gn8-zm-UXh" secondAttribute="leading" id="M4m-xf-WVZ"/>
                             <constraint firstAttribute="trailing" secondItem="hRf-Qk-mMI" secondAttribute="trailing" id="OhB-q8-wzD"/>
-                            <constraint firstItem="iox-L0-Di6" firstAttribute="top" secondItem="zDZ-bN-wTk" secondAttribute="bottom" constant="24" id="PAi-XY-wHV"/>
                             <constraint firstAttribute="trailing" secondItem="mUm-6e-ek8" secondAttribute="trailing" constant="20" symbolic="YES" id="WSn-Lu-Py3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="mUm-6e-ek8" secondAttribute="trailing" constant="109" id="bV6-z6-yca"/>
                             <constraint firstAttribute="centerY" secondItem="hRf-Qk-mMI" secondAttribute="centerY" constant="278" id="dBb-7X-U4X"/>
+                            <constraint firstItem="iox-L0-Di6" firstAttribute="top" secondItem="hRf-Qk-mMI" secondAttribute="bottom" id="ejp-Ru-pm3"/>
                             <constraint firstAttribute="trailing" secondItem="p1o-TU-ku1" secondAttribute="trailing" id="yBy-gO-Kds"/>
                             <constraint firstItem="p1o-TU-ku1" firstAttribute="top" secondItem="iox-L0-Di6" secondAttribute="bottom" id="zxo-WG-wIc"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="D7M-Ng-Pyb"/>
-                                <exclude reference="bV6-z6-yca"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="0ys-Aw-9E8"/>
                     <connections>
@@ -295,10 +309,77 @@
                     <view key="view" contentMode="scaleToFill" id="erM-Gg-BTu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for users by name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fnb-cS-h3o">
+                                <rect key="frame" x="16" y="154" width="568" height="55.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="47"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QJr-g9-Vai">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Back" id="xpi-Ts-scd">
+                                        <connections>
+                                            <segue destination="edQ-cD-EI2" kind="unwind" unwindAction="unwindToBaseController:" id="Z6Z-vB-FQP"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="L9y-vm-j7c"/>
+                                </items>
+                            </toolbar>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="6MH-95-x62">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <color key="barTintColor" red="0.85882359740000003" green="0.95686280729999995" blue="0.96078437569999997" alpha="1" colorSpace="deviceRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="rTq-Kr-vXf" id="eBk-TR-6e2"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HxF-Xk-Vj7">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="USER_CELL" id="eRM-br-qCE">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eRM-br-qCE" id="Z0g-ia-fDX">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="0.85882359740000003" green="0.95686280729999995" blue="0.96078437569999997" alpha="1" colorSpace="deviceRGB"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.85882359740000003" green="0.95686280729999995" blue="0.96078437569999997" alpha="1" colorSpace="deviceRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="rTq-Kr-vXf" id="ry4-b7-HJL"/>
+                                    <outlet property="delegate" destination="rTq-Kr-vXf" id="EJA-s0-XJR"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="0.85882359740000003" green="0.95686280729999995" blue="0.96078437569999997" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="Fnb-cS-h3o" secondAttribute="centerY" constant="118" id="3xV-ws-80g"/>
+                            <constraint firstItem="HxF-Xk-Vj7" firstAttribute="leading" secondItem="erM-Gg-BTu" secondAttribute="leading" id="8Cx-du-CP9"/>
+                            <constraint firstAttribute="trailing" secondItem="6MH-95-x62" secondAttribute="trailing" id="B66-3f-Yyu"/>
+                            <constraint firstItem="QJr-g9-Vai" firstAttribute="leading" secondItem="erM-Gg-BTu" secondAttribute="leading" id="BNE-sI-zMy"/>
+                            <constraint firstItem="HxF-Xk-Vj7" firstAttribute="top" secondItem="6MH-95-x62" secondAttribute="bottom" id="Bqw-CT-S4f"/>
+                            <constraint firstItem="6MH-95-x62" firstAttribute="leading" secondItem="erM-Gg-BTu" secondAttribute="leading" id="Jdd-TR-kfE"/>
+                            <constraint firstItem="QJr-g9-Vai" firstAttribute="top" secondItem="HxF-Xk-Vj7" secondAttribute="bottom" id="PDQ-iv-bVk"/>
+                            <constraint firstItem="Fnb-cS-h3o" firstAttribute="leading" secondItem="erM-Gg-BTu" secondAttribute="leading" constant="16" id="Qg1-6n-YHJ"/>
+                            <constraint firstAttribute="trailing" secondItem="HxF-Xk-Vj7" secondAttribute="trailing" id="VMH-hl-NL4"/>
+                            <constraint firstItem="6MH-95-x62" firstAttribute="top" secondItem="cxW-dW-0A1" secondAttribute="bottom" id="g2p-9l-6NG"/>
+                            <constraint firstItem="gKI-dK-y8u" firstAttribute="top" secondItem="QJr-g9-Vai" secondAttribute="bottom" id="jsg-No-WG8"/>
+                            <constraint firstAttribute="trailing" secondItem="Fnb-cS-h3o" secondAttribute="trailing" constant="16" id="rWj-Rd-gbN"/>
+                            <constraint firstAttribute="trailing" secondItem="QJr-g9-Vai" secondAttribute="trailing" id="s9G-Up-cbs"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="YFH-j1-yfE"/>
+                    <connections>
+                        <outlet property="searchBar" destination="6MH-95-x62" id="lsC-XZ-l26"/>
+                        <outlet property="tableView" destination="HxF-Xk-Vj7" id="wGl-pe-7EY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bct-Aq-zbY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="edQ-cD-EI2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3498" y="-206"/>
         </scene>

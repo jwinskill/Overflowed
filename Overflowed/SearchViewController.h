@@ -11,7 +11,7 @@
 #import "Question.h"
 #import "QuestionCell.h"
 
-@interface SearchViewController : UIViewController <UITableViewDataSource, UISearchBarDelegate>
+@interface SearchViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;

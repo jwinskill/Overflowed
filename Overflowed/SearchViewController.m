@@ -28,6 +28,7 @@
         } else {
             self.questions = questions;
             [self.searchBar resignFirstResponder];
+            self.tableView.separatorColor = [UIColor whiteColor];
             [self.tableView reloadData];
             self.tableView.hidden = NO;
         }
@@ -48,7 +49,13 @@
     }
     Question *newQuestion = self.questions[indexPath.row];
     cell.question.text = newQuestion.title;
+    cell.votes.text = newQuestion.votes;
+    cell.answers.text = newQuestion.answers;
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
 }
 
 

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "Question.h"
+#import "User.h"
+#import "Constants.h"
 
 @interface NetworkController : NSObject
 
